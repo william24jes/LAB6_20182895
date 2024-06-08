@@ -12,6 +12,5 @@ public class Inicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         inicioBinding = InicioBinding.inflate(getLayoutInflater());
         setContentView(inicioBinding.getRoot());
-
     }
 }
