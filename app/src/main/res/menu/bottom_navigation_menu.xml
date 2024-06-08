@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_ingresos"
+        android:title="Ingresos"
+        android:icon="@drawable/baseline_trending_up_24"/>
+    <item
+        android:id="@+id/navigation_egresos"
+        android:title="Egresos"
+        android:icon="@drawable/baseline_trending_down_24"/>
+    <item
+        android:id="@+id/navigation_resumen"
+        android:title="Resumen"
+        android:icon="@drawable/baseline_summarize_24"/>
+    <item
+        android:id="@+id/navigation_cerrar_sesion"
+        android:title="Cerrar Sesión"
+        android:icon="@drawable/baseline_logout_24"/>
+</menu>
