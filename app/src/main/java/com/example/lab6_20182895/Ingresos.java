@@ -1,7 +1,5 @@
 package com.example.lab6_20182895;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,7 +16,6 @@ import com.example.lab6_20182895.Bean.Ingreso;
 import com.example.lab6_20182895.databinding.FragmentIngresosBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -117,7 +114,7 @@ public class Ingresos extends Fragment {
 
         fragmentIngresosBinding.agregarIngreso.setOnClickListener(v -> {
             // Crea un Intent para abrir la actividad NuevoIngresoActivity
-            Intent intent = new Intent(getActivity(), NuevoIngreso.class);
+            Intent intent = new Intent(getActivity(),NuevoIngreso.class);
             startActivity(intent);
         });
 
