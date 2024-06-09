@@ -39,8 +39,10 @@ public class EditarIngreso extends AppCompatActivity {
         binding.campoDescripcion.setText(descripcion);
         binding.campoFecha.setText(fecha);
 
-        Button botonGuardar = findViewById(R.id.botonGuardar);
-        botonGuardar.setOnClickListener(v -> guardarCambios(titulo));
+        binding.botonGuardar.setOnClickListener(v -> guardarCambios(titulo));
+
+        binding.botonEliminar.setOnClickListener(v -> eliminarIngreso(titulo));
+
     }
 
     private void guardarCambios(String tituloOriginal) {
@@ -67,5 +69,22 @@ public class EditarIngreso extends AppCompatActivity {
                     Toast.makeText(EditarIngreso.this, "Error al actualizar los datos", Toast.LENGTH_SHORT).show();
                 });
     }
+
+    private void eliminarIngreso(String titulo) {
+        // Eliminar el ingreso de Firestore
+        db.collection("usuarios")
+                .document(user.getUid())
+                .collection("Ingresos")
+                .document(titulo)
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(EditarIngreso.this, "Ingreso eliminado exitosamente", Toast.LENGTH_SHORT).show();
+                    finish(); // Cierra la actividad actual y regresa al fragmento anterior
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(EditarIngreso.this, "Error al eliminar el ingreso", Toast.LENGTH_SHORT).show();
+                });
+    }
+
 
 }
