@@ -40,6 +40,15 @@
             android:exported="false">
         </activity>
 
+        <activity
+            android:name=".NuevoEgreso"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".EditarEgreso"
+            android:exported="false">
+        </activity>
+
     </application>
 
 </manifest>

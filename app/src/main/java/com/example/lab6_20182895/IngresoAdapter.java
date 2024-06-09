@@ -59,7 +59,7 @@ public class IngresoAdapter extends RecyclerView.Adapter<IngresoAdapter.IngresoV
         public void bind(Ingreso ingreso, OnItemClickListener listener) {
             binding.recTitulo.setText(ingreso.getTitulo());
             binding.recFecha.setText(ingreso.getFecha());
-            binding.recMonto.setText("S/." + String.valueOf(ingreso.getMonto()));
+            binding.recMonto.setText("+S/." + String.valueOf(ingreso.getMonto()));
             binding.recDescripcion.setText(ingreso.getDescripcion());
 
             binding.getRoot().setOnClickListener(v -> {
