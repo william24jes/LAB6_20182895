@@ -31,6 +31,10 @@
             android:name=".Inicio"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".NuevoIngreso"
+            android:exported="false">
+        </activity>
 
     </application>
 
