@@ -31,6 +31,7 @@
             android:name=".Inicio"
             android:exported="false">
         </activity>
+
     </application>
 
 </manifest>

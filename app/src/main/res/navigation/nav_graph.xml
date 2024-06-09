@@ -1,0 +1,22 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ingresos">
+
+    <fragment
+        android:id="@+id/ingresos"
+        android:name="com.example.lab6_20182895.Ingresos"
+        android:label="fragment_ingresos"
+        tools:layout="@layout/fragment_ingresos" />
+    <fragment
+        android:id="@+id/egresos"
+        android:name="com.example.lab6_20182895.Egresos"
+        android:label="fragment_egresos"
+        tools:layout="@layout/fragment_egresos" />
+    <fragment
+        android:id="@+id/resumen"
+        android:name="com.example.lab6_20182895.Resumen"
+        android:label="fragment_resumen"
+        tools:layout="@layout/fragment_resumen" />
+</navigation>

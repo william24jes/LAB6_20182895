@@ -111,8 +111,9 @@ public class InicioSesion extends AppCompatActivity {
 
 
     public void goToMainActivity() {
-        Intent intent = new Intent(InicioSesion.this, Inicio.class);
+        Intent intent = new Intent(this, Inicio.class);
         startActivity(intent);
-        finish();
+        finish(); // Finalizar la actividad actual para que no se pueda volver atrás
     }
+
 }

@@ -1,18 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_ingresos"
+        android:id="@+id/ingresos"
         android:title="Ingresos"
         android:icon="@drawable/baseline_trending_up_24"/>
     <item
-        android:id="@+id/navigation_egresos"
+        android:id="@+id/egresos"
         android:title="Egresos"
         android:icon="@drawable/baseline_trending_down_24"/>
     <item
-        android:id="@+id/navigation_resumen"
+        android:id="@+id/resumen"
         android:title="Resumen"
         android:icon="@drawable/baseline_summarize_24"/>
     <item
-        android:id="@+id/navigation_cerrar_sesion"
+        android:id="@+id/log_out"
         android:title="Cerrar Sesión"
         android:icon="@drawable/baseline_logout_24"/>
 </menu>
