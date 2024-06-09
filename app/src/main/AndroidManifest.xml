@@ -35,6 +35,10 @@
             android:name=".NuevoIngreso"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".EditarIngreso"
+            android:exported="false">
+        </activity>
 
     </application>
 

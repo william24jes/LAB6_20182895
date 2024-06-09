@@ -30,6 +30,7 @@ import java.util.List;
 public class Ingresos extends Fragment {
 
     FragmentIngresosBinding fragmentIngresosBinding;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +40,6 @@ public class Ingresos extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     public Ingresos() {
@@ -78,21 +78,26 @@ public class Ingresos extends Fragment {
                              Bundle savedInstanceState) {
         fragmentIngresosBinding = FragmentIngresosBinding.inflate(inflater, container, false);
         View view = fragmentIngresosBinding.getRoot();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String userId = user.getUid();
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
-        // Configura el layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Inicializa el adaptador con una lista vacía de ingresos
-        IngresoAdapter ingresoAdapter = new IngresoAdapter(new ArrayList<>());
+        IngresoAdapter ingresoAdapter = new IngresoAdapter(new ArrayList<>(), new IngresoAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Ingreso ingreso) {
+                Intent intent = new Intent(getActivity(), EditarIngreso.class);
+                intent.putExtra("titulo", ingreso.getTitulo());
+                intent.putExtra("monto", ingreso.getMonto());
+                intent.putExtra("descripcion", ingreso.getDescripcion());
+                intent.putExtra("fecha", ingreso.getFecha());
+                startActivity(intent);
+            }
+        });
 
-        // Asigna el adaptador al RecyclerView
         recyclerView.setAdapter(ingresoAdapter);
 
-        // Obtiene los ingresos desde Firestore y los agrega al adaptador
         db.collection("usuarios")
                 .document(userId)
                 .collection("Ingresos")
@@ -103,24 +108,19 @@ public class Ingresos extends Fragment {
                     }
 
                     List<Ingreso> ingresosList = new ArrayList<>();
-                    for(QueryDocumentSnapshot doc: snapshot){
+                    for (QueryDocumentSnapshot doc : snapshot) {
                         Ingreso ingreso = doc.toObject(Ingreso.class);
                         ingresosList.add(ingreso);
                     }
 
-                    // Actualiza la lista de ingresos en el adaptador
                     ingresoAdapter.setIngresosList(ingresosList);
                 });
 
         fragmentIngresosBinding.agregarIngreso.setOnClickListener(v -> {
-            // Crea un Intent para abrir la actividad NuevoIngresoActivity
-            Intent intent = new Intent(getActivity(),NuevoIngreso.class);
+            Intent intent = new Intent(getActivity(), NuevoIngreso.class);
             startActivity(intent);
         });
 
         return view;
     }
-
-
-
 }
